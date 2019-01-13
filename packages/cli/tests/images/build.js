@@ -1,7 +1,7 @@
 const common = {
 	'polyfills.*.js': 4620,
 	'polyfills.*.js.map': 31760,
-	'favicon.ico': 15086
+	'favicon.ico': 15086,
 };
 
 exports.default = exports.full = Object.assign({}, common, {
@@ -27,7 +27,7 @@ exports.default = exports.full = Object.assign({}, common, {
 	'ssr-build/ssr-bundle.js': 41715,
 	'ssr-build/ssr-bundle.js.map': 66661,
 	'ssr-build/style.*.css': 1065,
-	'ssr-build/style.*.css.map': 2345
+	'ssr-build/style.*.css.map': 2345,
 });
 
 exports.sass = `
@@ -55,10 +55,12 @@ exports.prerender.heads.home = `
 	<link rel="preload" href="\\/route-home\\.chunk\\.\\w{5}\\.js" as="script">
 	<link rel="preload" href="\\/route-home\\.chunk\\.\\w{5}\\.css" as="style">
 	<link rel="shortcut icon" href="\\/favicon\\.ico">
-	<link href=\\"/bundle.\\w{5}.css\\" rel=\\"preload\\" as=\\"style\\" onload=\\"this.rel='stylesheet'\\"><noscript>
-		<link rel=\\"stylesheet\\" href="\\/bundle.\\w{5}.css"><\\/noscript>
-	<style>html{padding:0;}<\\/style>
-<\\/head>
+	<style>html{padding:0}</style>
+	<link href=\\"/bundle.\\w{5}.css\\" rel=\\"preload\\" as=\\"style\\" onload=\\"this.rel='stylesheet'\\">
+	<noscript>
+		<link rel=\\"stylesheet\\" href=\\"/bundle.\\w{5}.css">
+	</noscript>
+</head>
 `;
 
 exports.prerender.heads.route66 = `
@@ -73,10 +75,8 @@ exports.prerender.heads.route66 = `
 	<link rel="preload" href="\\/route-route66\\.chunk\\.\\w{5}\\.js" as="script">
 	<link rel="preload" href="\\/route-route66\\.chunk\\.\\w{5}\\.css" as="style">
 	<link rel="shortcut icon" href="\\/favicon\\.ico">
-	<link href=\\"/bundle.\\w{5}.css\\" rel=\\"preload\\" as=\\"style\\" onload=\\"this.rel='stylesheet'\\"><noscript>
-		<link rel=\\"stylesheet\\" href=\\"\\/bundle.\\w{5}.css\\"><\\/noscript>
-	<style>html{padding:0;}<\\/style>
-<\\/head>
+	<link href=\\"/bundle.\\w{5}.css\\" rel="stylesheet">
+</head>
 `;
 
 exports.preload = {};
@@ -94,10 +94,11 @@ exports.preload.head = `
 	<link rel=\\"preload\\" href=\\"\\/route-home\\~route-route66\\~route-route89\\.chunk\\.\\w{5}\\.js\\" as=\\"script\\">
 	<link rel=\\"preload\\" href=\\"\\/route-home\\.chunk\\.\\w{5}\\.css\\" as=\\"style\\">
 	<link rel=\\"shortcut icon\\" href=\\"\\/favicon\\.ico\\">
+	<style>html{padding:0}</style>
 	<link href=\\"\\/bundle\\.\\w{5}\\.css\\" rel=\\"preload\\" as=\\"style\\" onload=\\"this\\.rel='stylesheet'\\">
 	<noscript>
-	<link rel=\\"stylesheet\\" href=\\"\\/bundle\\.\\w{5}\\.css\\"><\\/noscript>
-	<style>html{padding:0;}<\\/style>
+		<link rel=\\"stylesheet\\" href=\\"\\/bundle\\.\\w{5}\\.css\\">
+	</noscript>
 </head>
 `;
 
@@ -134,4 +135,3 @@ exports.webpack = `
 	</body>
 </html>
 `;
-
